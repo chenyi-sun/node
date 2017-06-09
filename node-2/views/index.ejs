@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <!--<title><%= title %></title>-->
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/index.css' />
   </head>
   <body>
-    <!--<h1><%= ask %></h1>-->
-   
-    <p>Welcome to <%= title %></p>
-    <p><%= ask %></p>
-    <a href="/login">登录</a>
+   <%- include head %>
+   <div class="right">
+     <p>主页</p>
+     <% if (success) { %>
+      <div><%= success %></div>
+     <% } %>
+     </div>
+      
+    <!--<a href="/login">登录</a>
+    <br/>
+     <a href="/reg">注册</a>
+     <br/>
+     <a href="/post">修改</a>
+     <br/>
+     <a href="/ask">删除</a>-->
   </body>
 </html>

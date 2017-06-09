@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--<title><%= title %></title>-->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/head.css' />
+  </head>
+  <body>
+   <div class = "head">
+       <div class = "box">
+             <% if(!user) {%>
+              <a href="/login">登录</a>
+              <br/>
+              <a href="/reg">注册</a>
+              <br/>
+             <% }%>
+            <a href="/post">修改</a>
+            <br/>
+            <a href="/ask">删除</a>
+             <div class = "headname">
+                <% if(user) {%>
+                用户名:
+                  <%= user %>
+                <% }%>
+                <!--<%= title %>-->
+            </div>
+       </div>
+   </div>
+  </body>
+</html>

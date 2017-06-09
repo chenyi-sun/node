@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "set DEBUG=blog & node ./bin/www"
+    "start": "set DEBUG=blog & node ./bin/www",
+    "start2": "supervisor ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -18,6 +19,8 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "connect-flash": "^0.1.1",
+    "express-session": "^1.15.3",
     "morgan": "^1.8.2",
     "mysql": "^2.13.0"
   }
