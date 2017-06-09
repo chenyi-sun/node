@@ -6,6 +6,7 @@ var check = require('./../public/javascripts/logcheck.js');
 
 router.get('/', check.checkNotLogin);
 router.get('/', function(req, res, next) {
+    console.log(req.path);
     if(req.session.user){
       req.flash('error', '已登录!'); 
     }

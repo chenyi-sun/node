@@ -10,13 +10,12 @@ var mysql = require('mysql');
 
 router.get('/', function(req, res, next) {
   var post = [];
+ 
   var fun = function(result){
         if(!req.session.user){
           post = [];
         }else{
           result.map(item=>{
-            console.log(req.session.user);
-            console.log(item.name);
             if(item.name == req.session.user){
               post.push(item);
                
