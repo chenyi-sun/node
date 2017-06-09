@@ -13,10 +13,13 @@
               <br/>
               <a href="/reg">注册</a>
               <br/>
-             <% }%>
-            <a href="/post">修改</a>
-            <br/>
-            <a href="/ask">删除</a>
+             <% } else {%>
+              <a href="/logout">退出登录</a>
+              <br/>
+              <!--<a href="/post">修改</a>
+              <br/>
+              <a href="/ask">删除</a>-->
+             <% } %>
              <div class = "headname">
                 <% if(user) {%>
                 用户名:

@@ -1,8 +1,14 @@
 var express = require('express');
 var router = express.Router(),crypto = require('crypto');;
 var allConnect = require('./../data/public.js');
+var check = require('./../public/javascripts/logcheck.js');
 /* GET users listing. */
+
+router.get('/', check.checkNotLogin);
 router.get('/', function(req, res, next) {
+    if(req.session.user){
+      req.flash('error', '已登录!'); 
+    }
      res.render('login', { 
               title: '登录',
               user: req.session.user,

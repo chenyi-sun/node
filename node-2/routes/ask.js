@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var check = require('./../public/javascripts/logcheck.js');
 
 /* GET users listing. */
-
+router.get('/', check.checkLogin);
 var mysql  = require('mysql'); 
 router.get('/', function(req, res, next) {
     var connection = mysql.createConnection({

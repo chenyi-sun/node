@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router(),crypto = require('crypto');
 var allConnect = require('./../data/public.js');
+var check = require('./../public/javascripts/logcheck.js');
 /* GET users listing. */
+router.get('/', check.checkNotLogin);
 router.get('/', function(req, res, next) {
         res.render('reg', { 
               title: '注册',
