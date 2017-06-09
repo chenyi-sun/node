@@ -14,6 +14,7 @@ var reg = require('./routes/reg');
 var login = require('./routes/login');
 var post = require('./routes/post');
 var logout = require('./routes/logout');
+var article = require('./routes/article');
 var app = express();
 var flash = require('connect-flash');
 
@@ -51,6 +52,7 @@ app.use('/reg', reg);
 app.use('/login', login);
 app.use('/post', post);
 app.use('/logout', logout);
+app.use('/article',article);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -12,8 +12,14 @@
      <% if (success) { %>
       <div><%= success %></div>
      <% } %>
+
+
+     <% posts.forEach(function (post, index) { %>
+     <p> <%= post.title %></p>
+    <p> <%= post.name %></p>
+    <% }) %>
      </div>
-      
+    
     <!--<a href="/login">登录</a>
     <br/>
      <a href="/reg">注册</a>

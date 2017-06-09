@@ -23,7 +23,6 @@ allConnect.add = function (data,fun){
 
 allConnect.findUser = function(data, fun, funerr){
     var  userGetSql = 'SELECT * FROM login';
-
     connection.query(userGetSql,function selectCb(err, result) {
          if(err){
           console.log('[SELECT ERROR] - ',err.message);
@@ -33,5 +32,30 @@ allConnect.findUser = function(data, fun, funerr){
     });
     return 'dddd';
 }
+
+allConnect.publishArticle = function(data){
+    var  userAddSql = 'INSERT INTO article(id,name,title,article,time) VALUES(0,?,?,?,?)';
+    var  userAddSql_Params = data;
+    // var  userAddSql_Params = ['Wilson', "ssss", "ddddd", 2015-10-20];
+    connection.query(userAddSql,userAddSql_Params,function (err, result) {
+         if(err){
+         console.log('[INSERT ERROR] - ',err.message);
+         return;
+        }       
+    });
+}
+
+allConnect.showArticle = function(data, fun){
+    var  userDelSql = 'SELECT * FROM article';
+    connection.query(userDelSql,function (err, result) {
+        if(err){
+          console.log('[DELETE ERROR] - ',err.message);
+          return;
+        }  
+        fun(result)
+        // fun();
+    });
+}
+
 
 module.exports = allConnect;
