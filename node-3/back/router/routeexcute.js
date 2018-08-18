@@ -9,7 +9,7 @@ var routers = [
         },
         {
             name: '/',
-            getfun: function(req, res){
+            getfun: function(req, res){ //页面重定向
                res.redirect('/index');
             },
             postfun: function(req, res){
