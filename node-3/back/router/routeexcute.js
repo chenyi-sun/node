@@ -6,7 +6,8 @@ var routers = [
             name: '/index',
             getfun: index,
             postfun: index,
-            descibe: '首页'
+            descibe: '首页',
+            root: [0],//权限
         },
         {
             name: '/',
@@ -15,7 +16,8 @@ var routers = [
             },
             postfun: function(req, res){
                  
-            }
+            },
+            root: [0]
         },
         {
             name: '/house',
@@ -31,7 +33,8 @@ var routers = [
             getfun: login,
             postfun: function(req, res, app){
 
-            }
+            },
+            root: [0]
         }
 ]
 

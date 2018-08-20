@@ -16,5 +16,20 @@ require('express-session');
 require('cookie-parser');
 权限设置问题
 
+4.设置缓存
+ app.use(cookieParser());
+    
+ app.use(session({
+      secret: '123456',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+      name: 'testapp',    //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
+      cookie: {maxAge: 800000 }, //800000ms 时间 800s 14分钟
+      resave: false,
+      saveUninitialized: true
+ }));
+
+设置缓存
+req.session.islogin = 'sss'; //设置缓存的值
+
+5.
 
   
