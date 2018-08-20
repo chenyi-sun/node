@@ -8,4 +8,13 @@
   app.get('/', function(req, res){
     res.redirect('/index');
   })
+
+3.node登录权限设置
+https://www.cnblogs.com/chenchenluo/p/4197181.html
+
+require('express-session');
+require('cookie-parser');
+权限设置问题
+
+
   
