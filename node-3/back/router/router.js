@@ -18,10 +18,13 @@ let routers = function(app){ //get name -> 对应方法
         let before = commonRouter;
         app.get(router[i].name, function(req, res){
             let value = commonRouter(req, res);
-            if(!value){
+            let pathname =  url.parse(req.url).pathname;
+            if(!value || pathname == '/login'){
                 fun(req, res, app);
             }
-            
+            else{
+                res.redirect('/login');
+            }
         });
     }
     app.use(function(req, res){
@@ -30,20 +33,14 @@ let routers = function(app){ //get name -> 对应方法
 }
 
 let commonRouter = function(req, res){ // 通用路由配置
-    console.log(req.session.islogin);
-    if(!req.session.islogin == root.islogin.trueVlue){
-        console.log("============isLogin============");
-        res.redirect('/login');
+    if(req.session.islogin != root.islogin.trueVlue){
+        console.log("============noLogin============");
         return true;
     }
     else{
-        console.log("============noLogin============");
+        console.log("============isLogin============");
+        return false;
     }
-    // if(req.session.islogin == 'islogintrue'){ //如果 
-
-    // }
-    // var pathname = url.parse(req.url);
-    // 
 };
 
 let beforePath = function(app){
