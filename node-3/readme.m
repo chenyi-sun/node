@@ -30,6 +30,6 @@ require('cookie-parser');
 设置缓存
 req.session.islogin = 'sss'; //设置缓存的值
 
-5.
+5.用 vue 嵌套写 js模块随便加 打包用gulp
 
   
