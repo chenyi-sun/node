@@ -3,7 +3,7 @@ var login = require('./actions/login.js');
 /**备注信息 */
 var routers = [
         {
-            name: '/index',
+            name: '([/index]+)',
             getfun: index,
             postfun: index,
             descibe: '首页',
@@ -31,9 +31,7 @@ var routers = [
         {
             name: '/login', //登录
             getfun: login,
-            postfun: function(req, res, app){
-
-            },
+            postfun: login,
             root: [0]
         }
 ]

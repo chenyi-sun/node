@@ -32,4 +32,16 @@ req.session.islogin = 'sss'; //设置缓存的值
 
 5.用 vue 嵌套写 js模块随便加 打包用gulp
 
+6.原生的文件读取
+fs.readFile( "user.json", "utf-8", function (err, data) {
+      if(err){
+        res.end(JSON.stringify(err));
+      }
+      else{
+        let localdata = JSON.parse(data);
+        let id = req.query.id;
+        delete localdata['user'+id];
+        res.end(JSON.stringify(localdata));
+      }
+  });
   

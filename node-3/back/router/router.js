@@ -19,17 +19,22 @@ let routers = function(app){ //get name -> 对应方法
             let value = commonRouter(req, res);
             let pathname =  url.parse(req.url).pathname;
             if(!value || pathname == '/login'){ //如果返回值是false 或者是登录页面就去显示
-                fun(req, res, app);
+                fun(req, res, app, 'get');
             }
             else{
                 res.redirect('/login');
             }
+        });
+        app.post(router[i].name, function (req, res) {
+            fun(req, res, app, 'post');
         });
     }
     app.use(function(req, res){
         res.sendFile(paths  + "/html/static/nofound.html");
     });
 }
+
+
 
 let commonRouter = function(req, res){ // 通用路由配置
     if(req.session.islogin != root.islogin.trueVlue){
