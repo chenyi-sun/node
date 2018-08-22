@@ -7,6 +7,8 @@ var root = require("./../data/static/root.js");
 var common = require("./../../common.js");
 router = router.router; //所有的地址对应的路由和方法
 let paths  = path.resolve(__dirname, '../..');
+let loginname = '/login';
+
 
 let routers = function(app){ //get name -> 对应方法
     beforePath(app);
@@ -18,11 +20,11 @@ let routers = function(app){ //get name -> 对应方法
         app.get(router[i].name, function(req, res){
             let value = commonRouter(req, res);
             let pathname =  url.parse(req.url).pathname;
-            if(!value || pathname == '/login'){ //如果返回值是false 或者是登录页面就去显示
+            if(!value || pathname == loginname){ //如果返回值是false 或者是登录页面就去显示
                 fun(req, res, app, 'get');
             }
             else{
-                res.redirect('/login');
+                res.redirect(loginname);
             }
         });
         app.post(router[i].name, function (req, res) {

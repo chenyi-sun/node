@@ -6,9 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div><%= showValue %></div>
+    <% if(isinput){ %>
+    <form method="post">
+        <input name="name"/>
+        <input name="password"/>
+        <input type="submit"/>
+    </form>
+    <% } %>
 </body>
-<script>
-    // window.location.href = './index';
-</script>
 </html>

@@ -12,15 +12,23 @@ module.exports = function(req, res, app, type){
         let fun = function(data){
             res.end(data);
         }
+        let showValue = '';
+        let isinput = false;
         if(type == 'post'){
-            res.end('end');
+            par = {
+              showValue: "success",
+              isinput: false  
+            }
+        }
+        else{
+            par = {
+              showValue: "please do",
+              isinput: true  
+            }
         }
         ejshome(1,{
-            path: '/html/login/login.ejs',
-            par: {
-                msg: 'sss',
-                list: 'ssss'
-            },
+            path: '/login/login.ejs',
+            par: par,
             fun: function(err,data){
                fun(data);
             }

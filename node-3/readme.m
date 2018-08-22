@@ -45,3 +45,5 @@ fs.readFile( "user.json", "utf-8", function (err, data) {
       }
   });
   
+  7. ejs输出变量
+  <%= list %>
