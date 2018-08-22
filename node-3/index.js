@@ -8,10 +8,11 @@ var path = require('path');
 
 var app = express();
 
-
+app.use(express.static('html/staticpublic'));
 session.session(app);//session服务
 server.server(app); //http服务
 routers.routers(app); //路由服务
+
 
 
 

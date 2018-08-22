@@ -40,11 +40,11 @@ let routers = function(app){ //get name -> 对应方法
 
 let commonRouter = function(req, res){ // 通用路由配置
     if(req.session.islogin != root.islogin.trueVlue){
-        console.log("============noLogin============");
+        // console.log("============noLogin============");
         return true;
     }
     else{
-        console.log("============isLogin============");
+        // console.log("============isLogin============");
         return false;
     }
 };

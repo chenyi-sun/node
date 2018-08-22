@@ -26,6 +26,7 @@ module.exports = function(req, res, app, type){
               isinput: true  
             }
         }
+        // res.end("sssss");
         ejshome(1,{
             path: '/login/login.ejs',
             par: par,

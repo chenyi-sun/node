@@ -47,3 +47,4 @@ fs.readFile( "user.json", "utf-8", function (err, data) {
   
   7. ejs输出变量
   <%= list %>
+  即使页面代码被注释掉了，注释也会被翻译出来
