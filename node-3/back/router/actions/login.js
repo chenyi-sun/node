@@ -17,16 +17,18 @@ module.exports = function(req, res, app, type){
         if(type == 'post'){
             par = {
               showValue: "success",
-              isinput: false  
+              isinput: false,
+              url: "./../"
             }
         }
         else{
             par = {
               showValue: "please do",
-              isinput: true  
+              isinput: true,
+              url: "./../"
             }
         }
-        // res.end("sssss");
+        
         ejshome(1,{
             path: '/login/login.ejs',
             par: par,

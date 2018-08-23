@@ -48,3 +48,15 @@ fs.readFile( "user.json", "utf-8", function (err, data) {
   7. ejs输出变量
   <%= list %>
   即使页面代码被注释掉了，注释也会被翻译出来
+
+  8.dist页面只是打包以后的测试页面
+    (是public/staticpublic----->public/html/staticpublic ----> css和json注入ejs页面--->dist测试页面，页面结构混乱，
+    仅用来测试页面数据和样式)
+    html是路由去获取的页面
+    ()
+    public下面是所有原始的页面 样式
+
+  9.https://www.jianshu.com/p/5cd186600afe
+    
+
+
