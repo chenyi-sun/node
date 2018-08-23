@@ -6,9 +6,12 @@ var path = require('path');
 var root = require("./../data/static/root.js");
 var common = require("./../../common.js");
 router = router.router; //所有的地址对应的路由和方法
+var bodyParser = require('body-parser');
 let paths  = path.resolve(__dirname, '../..');
 let loginname = '/login';
 
+// 创建 application/x-www-form-urlencoded 编码解析
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 let routers = function(app){ //get name -> 对应方法
     beforePath(app);
@@ -17,6 +20,7 @@ let routers = function(app){ //get name -> 对应方法
         let name = router[i].name;
         let fun  = router[i].getfun;
         let before = commonRouter;
+
         app.get(router[i].name, function(req, res){
             let value = commonRouter(req, res);
             let pathname =  url.parse(req.url).pathname;
@@ -27,7 +31,8 @@ let routers = function(app){ //get name -> 对应方法
                 res.redirect(loginname);
             }
         });
-        app.post(router[i].name, function (req, res) {
+
+        app.post(router[i].name, urlencodedParser,function (req, res) {
             fun(req, res, app, 'post');
         });
     }
@@ -35,8 +40,6 @@ let routers = function(app){ //get name -> 对应方法
         res.sendFile(paths  + "/html/static/nofound.html");
     });
 }
-
-
 
 let commonRouter = function(req, res){ // 通用路由配置
     if(req.session.islogin != root.islogin.trueVlue){

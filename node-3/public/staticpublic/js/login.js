@@ -1,2 +1,3 @@
-let Vue = require("./vue.js");
+// console.log(vue);
+console.log("============");
 console.log(Vue);

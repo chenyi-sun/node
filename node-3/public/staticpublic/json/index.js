@@ -3,6 +3,9 @@ module.exports = {
     login: {
               showValue: 'sdds',
               isinput: true,
-              url: "./../" //css和js的路径依赖
-           }
+              url: url //css和js的路径依赖
+           },
+    index: {
+              url: url //css和js的路径依赖
+    }
 }

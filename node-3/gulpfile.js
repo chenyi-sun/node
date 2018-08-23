@@ -6,12 +6,6 @@ var reload = browserSync.reload;
 var through = require("through2");
 var del = require('del');
 
-// gulp.task('sa', function(){
-//     return gulp.src('public/staticpublic/scss/*.scss')
-//         .pipe(sass())
-//         .pipe(gulp.dest('public/html/staticpublic/css'))
-//         .pipe(gulp.dest('dist/css'));
-// });
 gulp.task('copy1', function(){
     return gulp.src('public/html/*/*/*')
     .pipe(gulp.dest('html'));
@@ -52,20 +46,23 @@ gulp.task('dist-serve', function(){
     });
     gulp.watch(['html/*/*'], {cwd: 'public'}, ['dist-ejs',reload]);
     gulp.watch(['staticpublic/scss/*'], {cwd: 'public'}, ['dist-scss',reload]);
+    gulp.watch(['staticpublic/js/*'], {cwd: 'public'}, ['dist-js','dist-ejs',reload]);
+    gulp.watch(['staticpublic/json/*'], {cwd: 'public'}, ['dist-js','dist-ejs',reload]);
 });
 
 // 删除 dist 文件 
-gulp.task('clean:mobile', function(cb){
+gulp.task('clean:dist', function(cb){
     del([
-        'dist/report.csv',,
+        'dist/report.csv',
         'dist/*',
         '!dist/all.json'
     ], cb);
 });
 
-gulp.task('clean', ['clean:mobile']);
+gulp.task('clean', ['clean:dist']);
 
 // gulp dist 任务
+gulp.task('dist-gulp',['dist-scss', 'dist-ejs', 'dist-js']);
 gulp.task('dist',['dist-scss', 'dist-ejs', 'dist-js' ,'dist-serve']);
 //** ===== dist end =====  */
 

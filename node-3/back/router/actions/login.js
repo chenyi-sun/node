@@ -4,23 +4,31 @@ var url = require("url");
 var common = require("./../../../common.js");
 var root = require("./../../data/static/root.js");
 var ejshome = require("./../../ejshome/ejshome.js");
+var bodyParser = require('body-parser');
 
 common = common.common;
 module.exports = function(req, res, app, type){
     if(common.isLogin){ //如果测试设置了默认登录
-        req.session.islogin = root.islogin.trueVlue; //赋值系统的登录值
         let fun = function(data){
             res.end(data);
         }
         let showValue = '';
         let isinput = false;
-        if(type == 'post'){
+        if(type == 'post' || req.session.islogin == root.islogin.trueVlue){
+            if(req.body.name == "root" && req.body.password == "2322"){
+                req.session.islogin = root.islogin.trueVlue;
+                showValue = "success";
+            }
+            else{
+                showValue = "fail";
+            }
+             //赋值系统的登录值
             par = {
-              showValue: "success",
+              showValue: showValue,
               isinput: false,
               url: "./../"
             }
-        }
+        } 
         else{
             par = {
               showValue: "please do",
@@ -28,8 +36,8 @@ module.exports = function(req, res, app, type){
               url: "./../"
             }
         }
-        
-        ejshome(1,{
+
+        ejshome(1, {
             path: '/login/login.ejs',
             par: par,
             fun: function(err,data){
