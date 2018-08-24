@@ -6,7 +6,7 @@ let server = function(app){
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log("[SERVER] : http://%s:%s", host, port)
+    // console.log("[SERVER] : http://%s:%s", host, port)
         
     });
 };

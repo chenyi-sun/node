@@ -3,13 +3,13 @@ var cookieParser = require("cookie-parser");
 var common = require('./../../common.js');
 
 let sessionact = function(app){
-    console.log("============");
+    // console.log("============");
     
-    console.log("session");
+    // console.log("session");
 
-    console.log(common);
+    // console.log(common);
 
-    console.log("=============");
+    // console.log("=============");
     
     app.use(cookieParser());
     

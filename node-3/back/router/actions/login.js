@@ -36,7 +36,6 @@ module.exports = function(req, res, app, type){
               url: "./../"
             }
         }
-
         ejshome(1, {
             path: '/login/login.ejs',
             par: par,
