@@ -57,6 +57,30 @@ fs.readFile( "user.json", "utf-8", function (err, data) {
     public下面是所有原始的页面 样式
 
   9.https://www.jianshu.com/p/5cd186600afe
+
+  10.node 创建文件夹
+  var fs = require("fs");
+
+  console.log("创建目录 /tmp/test/");
+  fs.mkdir("/tmp/test/",function(err){
+    if (err) {
+        return console.error(err);
+    }
+    console.log("目录创建成功。");
+  });
     
-
-
+  11.node 原生写入文件
+  fs.writeFile('input.txt', '我是通 过fs.writeFile 写入文件的内容',  function(err) {
+   if (err) {
+       return console.error(err);
+   }
+   console.log("数据写入成功！");
+   console.log("--------我是分割线-------------")
+   console.log("读取写入的数据！");
+   fs.readFile('input.txt', function (err, data) {
+      if (err) {
+         return console.error(err);
+      }
+      console.log("异步读取文件数据: " + data.toString());
+   });
+});

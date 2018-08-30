@@ -1,6 +1,7 @@
 var mysql = require("mysql");
 var dateconect = require("./datebase/base.js");
 var createconect = require("./createdate/createtable.js");
+var createlog = require("./../log/logcreate.js");
 //https://blog.csdn.net/lymm000/article/details/65937886
 
 //数据库连接失败
@@ -9,6 +10,7 @@ module.exports = function(app){
     connection.connect(function(err){
         if(err){
             console.log("faile"); 
+            createlog();
         }else{
             console.log("success");
             if(dateconect.datetype == "create"){
